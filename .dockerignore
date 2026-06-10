@@ -1,0 +1,17 @@
+.venv
+venv
+__pycache__
+*.py[cod]
+.pytest_cache
+.allure-results
+allure-results
+allure-report
+screenshots
+.env
+.git
+.github
+*.md
+!README.md
+.idea
+.vscode
+*.log

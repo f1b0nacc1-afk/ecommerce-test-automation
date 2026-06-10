@@ -1,0 +1,41 @@
+services:
+  api-tests:
+    build: .
+    command: pytest -m api -v
+    environment:
+      JSONPLACEHOLDER_BASE_URL: https://jsonplaceholder.typicode.com
+
+  ui-tests:
+    build: .
+    command: pytest -m ui -v
+    environment:
+      BASE_URL: https://www.saucedemo.com
+      HEADLESS: "true"
+      CHROME_BIN: /usr/bin/chromium
+      CHROMEDRIVER_PATH: /usr/bin/chromedriver
+      STANDARD_USER: standard_user
+      STANDARD_PASSWORD: secret_sauce
+
+  smoke-tests:
+    build: .
+    command: pytest -m smoke -v
+    environment:
+      BASE_URL: https://www.saucedemo.com
+      HEADLESS: "true"
+      CHROME_BIN: /usr/bin/chromium
+      CHROMEDRIVER_PATH: /usr/bin/chromedriver
+      JSONPLACEHOLDER_BASE_URL: https://jsonplaceholder.typicode.com
+      STANDARD_USER: standard_user
+      STANDARD_PASSWORD: secret_sauce
+
+  all-tests:
+    build: .
+    command: pytest -v
+    environment:
+      BASE_URL: https://www.saucedemo.com
+      HEADLESS: "true"
+      CHROME_BIN: /usr/bin/chromium
+      CHROMEDRIVER_PATH: /usr/bin/chromedriver
+      JSONPLACEHOLDER_BASE_URL: https://jsonplaceholder.typicode.com
+      STANDARD_USER: standard_user
+      STANDARD_PASSWORD: secret_sauce
